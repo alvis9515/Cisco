@@ -1,0 +1,7 @@
+---
+- name: Cisco
+  hosts: Router
+  tasks:
+    - name: Run show version on remote devices
+      cisco.ios.ios_command:
+        commands: show ip interface brief

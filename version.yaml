@@ -1,6 +1,6 @@
 ---
 - name: Cisco
-  hosts: all
+  hosts: Router
   tasks:
     - name: Run show version on remote devices
       cisco.ios.ios_command:

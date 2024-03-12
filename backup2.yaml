@@ -1,0 +1,17 @@
+---
+- name: Backup Cisco Router Configuration
+  hosts: cisco
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: Save running-config to SCP server
+      ios_command:
+        commands:
+          - "write scp://awx@192.168.73.7:/path/to/backup/{{ inventory_hostname }}.cfg"
+        prompt_continue: yes
+      register: result
+
+    - name: Display command output
+      debug:
+        var: result.stdout_lines

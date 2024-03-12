@@ -1,0 +1,14 @@
+---
+- name: Backup Cisco Router Configuration
+  hosts: Router
+  gather_facts: no
+
+  tasks:
+    - name: Backup current running-config
+      ios_config:
+        backup: yes
+      register: backup_result
+
+    - name: Print backup file path
+      debug:
+        msg: "The backup file is located at {{ backup_result.backup_path }}"

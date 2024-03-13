@@ -1,6 +1,6 @@
 ---
 - name: Backup Cisco Router Configuration
-  hosts: cisco
+  hosts: Router
   gather_facts: no
   become: yes
 

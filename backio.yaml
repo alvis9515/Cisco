@@ -1,5 +1,7 @@
-
-
+---
+- name: Cisco
+  hosts: Router
+  tasks:
 # This task will backup the configuration
 - name: Backup cisco ios configuration
   cisco.ios.ios_config:

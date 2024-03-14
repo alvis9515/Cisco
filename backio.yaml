@@ -2,7 +2,6 @@
 - name: Cisco
   hosts: Router
   tasks:
-# This task will backup the configuration
     - name: Backup cisco ios configuration
       cisco.ios.ios_config:
         backup: true
@@ -11,7 +10,6 @@
           filename: "{{ inventory_hostname }}.txt"
       register: config_output
 
-# This task removes the Current configuration... from the top of IOS routers show run
     - name: Remove non config lines - regexp
       ansible.builtin.lineinfile:
         path: "{{ config_output.backup_path }}"
